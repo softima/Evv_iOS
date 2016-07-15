@@ -31,7 +31,17 @@ function onPause() {
 
 function onResume() {
     // Handle the resume event
-    restartApplication();
+    var networkState = navigator.connection.type;
+    if (networkState == Connection.NONE)
+    {
+        window.location='./first_screen.html';
+       
+    }
+    else
+    {
+    	navigator.splashscreen.show();
+    	window.location='./index.html';
+    }
    
 }
 
