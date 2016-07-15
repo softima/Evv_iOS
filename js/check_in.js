@@ -23,8 +23,23 @@ $(document).ready(function(){
 
 
 
-    function onDeviceReady() 
-    {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     check_in_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function check_in_page(){
     	 /* var options =  { maximumAge: 3000, timeout: 1000, enableHighAccuracy: true };
     	  navigator.geolocation.getCurrentPosition(ShowPosition, ShowError, options);*/
     	document.addEventListener("backbutton", onBackKeyDown, false);
@@ -39,6 +54,33 @@ $(document).ready(function(){
     }
     else
     {
+    	
+    	$('#expenses1').keypress(function( event ){
+    var key = event.which;
+    var value = $(this).val();
+   
+   if( value.length > 6 )
+   {
+   
+   	event.preventDefault();
+   }
+    if( ! ( key >= 48 && key <= 57 ) && key !=46)
+        event.preventDefault();
+});
+
+$('#mileage1').keypress(function( event ){
+    var key = event.which;
+    var value = $(this).val();
+   
+   if( value.length > 4 )
+   {
+   
+   	event.preventDefault();
+   }
+    if( ! ( key >= 48 && key <= 57 ) && key !=46)
+        event.preventDefault();
+});
+    	
     	
 		var visit_uuid = getURLParameters('visit_uuid');
 		var visit_type_id = getURLParameters('visit_type_id');
@@ -67,7 +109,7 @@ $(document).ready(function(){
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -190,7 +232,7 @@ $(document).ready(function(){
 			
 				
 	
-	var device_uuid = device.uuid;
+	var device_uuid = device1.uuid;
 	var latitude=$('input#latitude').val();
 	var longitude=$('input#longitude').val();
 	//var latitude="40.712784";newyork
@@ -270,7 +312,7 @@ $(document).ready(function(){
           },
           success: function (token) {   
 
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -441,7 +483,7 @@ if(patient_availability_status)
 			else
 				sizedWindowWidth = sizedWindowWidth - 50;
 			 
-			 $("#canvas").width(299);
+			 $("#canvas").width(280);
 			 $("#canvas").height(125);
 			 $("#canvas").css("border","1px solid #000");
 			
@@ -651,33 +693,33 @@ $(document).ready(function(){
     $("#check_in_form").submit(function(event)
 	{
     	
+        
     	$('#check_in_time').html('Loading...');
 		$('#check_in_time').prop('disabled', true);
 		$('#expenses1').prop('disabled', true);
 		$('#mileage1').prop('disabled', true);
 		$('#exampleInputminutesspent').prop('disabled', true);
-
-	
+        
 		var latitude=$('input#latitude').val();
 		var longitude=$('input#longitude').val();
 		var imgData=$('input#imgData').val();
 	
-	
-		var visit_uuid = getURLParameters('visit_uuid');
+        	var visit_uuid = getURLParameters('visit_uuid');
 		var visit_type_id = getURLParameters('visit_type_id');
 		var patient_uuid = getURLParameters('patient_uuid');
 		var user_id = getURLParameters('user_id');
 		var patient_availability_status =$('input[name="my-checkbox"]').is(":checked");
-		var device_uuid = device.uuid;
-	
+		var device_uuid = device1.uuid;
+	        
 		if(patient_availability_status)
 		{ 
+                            
 			return fun_submit();
 		}
 		else
 		{
 			
-			
+			        
 			var expenses1=$("#expenses1").val();
 			if(expenses1 == "")
 			{
