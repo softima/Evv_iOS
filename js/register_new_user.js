@@ -8,12 +8,28 @@ $(document).ready(function(){
 
  
  
-	function onDeviceReady() 
-	{
+			
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     register_new_user_page();
+};		
+
+function fail(uuid)		
+{	};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function register_new_user_page(){
 	document.addEventListener("backbutton", onBackKeyDown, false);
  
         var element = document.getElementById('deviceProperties');
-		var device_uuid = device.uuid;
+		var device_uuid = device1.uuid;
+		
        	var device_name  = device.name;
        	var device_model  = device.model;
        	var device_platform =  device.platform;                        
@@ -189,18 +205,12 @@ return false;
     
     function makeCorsRequest_register(username,password)
      {
-     var networkState = navigator.connection.type;
-    	if (networkState == Connection.NONE)
-    	{
-			navigator.app.exitApp();
-         	return false;
-  		}
- else{
+    
  var username=username;
  var password=password;
 
 var device_uuid = document.getElementById("device_uuid");
-var device_name = document.getElementById('device_name');
+var device_name = document.getElementById("device_name");
 var device_model = document.getElementById("device_model");
 var device_platform = document.getElementById("device_platform");
 var device_version = document.getElementById("device_version");
@@ -237,7 +247,7 @@ var device_version = document.getElementById("device_version");
 	        			      className: "btn-danger",
 	        			      callback: function() {
 	        			    	  
-	        			    	  onBackKeyDown();
+	        			    	 window.location='./server_not_available.html';
 	        			      }
 	        			    
 	        			    }
@@ -345,33 +355,36 @@ var device_version = document.getElementById("device_version");
     return false;          
               
               }
-             else if(data.response=='2')
-			  {
-					 $('#submit_button').prop('disabled', false);
-			  $('#username1').prop('disabled', false);
-			  $('#password1').prop('disabled', false);
-			  $('#pin1').prop('disabled', false);
-			  $('#submit_button').html('Register');
-              bootbox.dialog({
-			 closeButton: false,
-  message: "Invalid Username or Password.",
-  title: "Alert",
-  buttons: {
-    success: {
-      label: "OK",
-      className: "btn-danger",
-      callback: function() {
-      
-      
-  }
-  }
-  }
-}); 
               
-    return false;          
-             
-			  
+              
+               else if(data.response=='2')		
+			  {		
+					 $('#submit_button').prop('disabled', false);		
+			  $('#username1').prop('disabled', false);		
+			  $('#password1').prop('disabled', false);		
+			  $('#pin1').prop('disabled', false);		
+			  $('#submit_button').html('Register');		
+              bootbox.dialog({		
+			 closeButton: false,		
+  message: "Invalid Username or Password.",		
+  title: "Alert",		
+  buttons: {		
+    success: {		
+      label: "OK",		
+      className: "btn-danger",		
+      callback: function() {		
+      		
+      		
+  }		
+  }		
+  }		
+}); 		
+              		
+    return false;          		
+             		             
+			  		
 			  }
+             
 			 else{
 			  
 			  
@@ -408,7 +421,7 @@ var device_version = document.getElementById("device_version");
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  onBackKeyDown();
+        			    	  	window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -420,7 +433,7 @@ var device_version = document.getElementById("device_version");
           },
           success: function (token) {   
  
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -514,6 +527,6 @@ var device_version = document.getElementById("device_version");
 			}
 			});
 
-}
+
 
 }
