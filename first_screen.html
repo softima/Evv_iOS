@@ -31,7 +31,21 @@ function onPause() {
 
 function onResume() {
     // Handle the resume event
-    alert("event Resumed");
+   var networkState = navigator.connection.type;
+    if (networkState == Connection.NONE)
+    {
+     
+        
+     
+                window.location='./first_screen.html';
+                return true;
+    }
+    else
+{
+	 window.location='./index.html';
+                return true;
+	
+}	
 }
 
 function onMenuKeyDown() {
@@ -48,6 +62,6 @@ function onMenuKeyDown() {
           
  <div class='alert alert-info' role='alert'>This app requires internet connection. Make sure you are connected to a wifi network or have switched on your network data.</div>
  </body>
- <button type="submit" name="go" id="submit_button" class="btn btn-lg btn-primary btn-block">Try Again</button>
+ <!--<button type="submit" name="go" id="submit_button" class="btn btn-lg btn-primary btn-block">Try Again</button>-->
          
 </html>
