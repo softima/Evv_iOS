@@ -6,7 +6,23 @@
 
 				        
 	 
-	function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     report_a_problem_page();
+};		
+
+function fail(uuid)		
+{	};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function report_a_problem_page(){
 
  document.addEventListener("backbutton", onBackKeyDown, false);
 	      
@@ -61,10 +77,11 @@
 					}
 					else
 					{
+						alert("Else");
 						$('#submit').html('Loading...');
 				    	$('#submit').prop('disabled', true);
 				    	$('#issue_input').prop('disabled', true);
-							var device_uuid = device.uuid;
+							var device_uuid = device1.uuid;
 		       				var issue_input=$('#issue_input').val();
 		        $.ajax({
 		          url:"https://mmportal.ondemandhc.net/services/session/token",
@@ -87,13 +104,19 @@
 			
 			
 			
-			var device_uuid = device.uuid;
+			var device_uuid = device1.uuid;
+		
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
     $(document).ajaxSend(function(e, xhr, options) {
         xhr.setRequestHeader(header, token);
     });
+	
+		alert("Device Value");
+			alert(device_uuid);
+	
+	
 	
             $.ajax({
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/save_device_issues',
@@ -122,7 +145,7 @@
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  onBackKeyDown();
+        			    	  	window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -145,7 +168,7 @@
       className: "btn-success",
       callback: function() {
     	 
-    	    navigator.app.backHistory();  
+    	    //navigator.app.backHistory();  
 
       }
     
