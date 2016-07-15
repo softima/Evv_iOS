@@ -13,8 +13,24 @@ $(document).ready(function(){
     document.addEventListener("deviceready",onDeviceReady,false);       
 });
 
+		
+		    var device1;			
 
-    function onDeviceReady() {
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     forgot_pin_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function forgot_pin_page(){
+        
     	 document.addEventListener("backbutton", onBackKeyDown, false);
     
 		var element = document.getElementById('deviceProperties');
@@ -30,7 +46,7 @@ $(document).ready(function(){
     }
 
    
-	var device_uuid = device.uuid;
+	var device_uuid = device1.uuid;
 	 $.ajaxSetup({
         xhrFields: {
             withCredentials: true
@@ -57,7 +73,7 @@ $(document).ready(function(){
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	  	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -70,7 +86,7 @@ $(document).ready(function(){
           },
           success: function (token) {   
 			
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -82,7 +98,7 @@ $(document).ready(function(){
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_registered_emails',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
               timeout:20000,
               crossDomain: true,
@@ -130,7 +146,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 }
 });
 
-        var device_uuid = device.uuid;
+        var device_uuid = device1.uuid;
 		$.ajaxSetup({
         xhrFields: {
             withCredentials: true
@@ -158,7 +174,7 @@ for (var i = 0; i < data.emails.length; ++i) {
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -171,7 +187,7 @@ for (var i = 0; i < data.emails.length; ++i) {
           },
           success: function (token) {   
 				
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -183,7 +199,7 @@ for (var i = 0; i < data.emails.length; ++i) {
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_portal_security_questions',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
               timeout:20000,
               crossDomain: true,
@@ -223,7 +239,7 @@ for (var i = 0; i < data.emails.length; ++i) {
        				      className: "btn-danger",
        				      callback: function() {
        				  
-       				    	exit_app();
+       				    		window.location='./patient_selection.html';
        				    
        				      }
        				    
@@ -405,7 +421,7 @@ for (var i = 0; i < data.emails.length; ++i) {
     else
     {
 			var email=$('select#registered_emails').val();
-			var device_uuid=device.uuid;
+			var device_uuid=device1.uuid;
 			var security_question = $('select#security_question').val();
 			var security_answer = $('input#security_answer').val();
 			var user_uuid = $('#user_uuid').val();
@@ -453,7 +469,7 @@ for (var i = 0; i < data.emails.length; ++i) {
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -466,7 +482,7 @@ for (var i = 0; i < data.emails.length; ++i) {
           },
           success: function (token) {   
 			
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -623,7 +639,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 			else
 			{
 			var email=$('select#registered_emails').val();
-			var device_uuid=device.uuid;
+			var device_uuid=device1.uuid;
 			var security_question = $('select#security_question').val();
 			var security_answer = $('input#security_answer').val();
 
@@ -682,7 +698,7 @@ for (var i = 0; i < data.emails.length; ++i) {
     }
     else
     {
-			var device_uuid = device.uuid;
+			var device_uuid = device1.uuid;
 			
 			
 			
@@ -715,7 +731,7 @@ for (var i = 0; i < data.emails.length; ++i) {
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	  	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -729,7 +745,7 @@ for (var i = 0; i < data.emails.length; ++i) {
           },
           success: function (token) {   
 
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -741,7 +757,7 @@ for (var i = 0; i < data.emails.length; ++i) {
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/alert_admin',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
               timeout:20000,
               crossDomain: true,
@@ -929,7 +945,7 @@ var username = document.getElementById("username1").value;
 
 var password = document.getElementById("password1").value;
 
-var device_uuid = device.uuid;
+var device_uuid = device1.uuid;
 	
 
     
@@ -970,7 +986,7 @@ var device_uuid = device.uuid;
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -983,7 +999,7 @@ var device_uuid = device.uuid;
           },
           success: function (token) {   
 				
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
