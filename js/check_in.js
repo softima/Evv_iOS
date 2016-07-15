@@ -38,7 +38,14 @@ function fail(uuid)
     
 		function onDeviceReady() {
                        window.plugins.uniqueDeviceID.get(success, fail);
+                       document.addEventListener("resume", onResume, false);
     }
+    
+    function onResume() {
+	 restartApplication();
+	 }
+    
+    
     function check_in_page(){
     	 /* var options =  { maximumAge: 3000, timeout: 1000, enableHighAccuracy: true };
     	  navigator.geolocation.getCurrentPosition(ShowPosition, ShowError, options);*/
