@@ -6,7 +6,23 @@
 
 				        
 	 
-	function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     report_a_problem_login_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function report_a_problem_login_page(){
 
  document.addEventListener("backbutton", onBackKeyDown, false);
 	      
@@ -65,7 +81,7 @@ var networkState = navigator.connection.type;
 				    	$('#submit').prop('disabled', true);
 				    	$('#issue_input').prop('disabled', true);
 
-							var device_uuid = device.uuid;
+							var device_uuid = device1.uuid;
 		       				var issue_input=$('#issue_input').val();
 		        $.ajax({
 		          url:"https://mmportal.ondemandhc.net/services/session/token",
@@ -88,7 +104,7 @@ var networkState = navigator.connection.type;
 			
 			
 			
-			var device_uuid = device.uuid;
+			var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -123,7 +139,7 @@ var networkState = navigator.connection.type;
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  onBackKeyDown();
+        			    	 	window.location='./server_not_available.html';
         			      }
         			    
         			    }
