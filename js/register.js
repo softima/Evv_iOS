@@ -7,11 +7,27 @@ $(document).ready(function(){
  
 
    
-    function onDeviceReady() 
-    {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     register_page();
+};		
+
+function fail(uuid)		
+{	};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function register_page(){
+        
    document.addEventListener("backbutton", onBackKeyDown, false);
 		var element = document.getElementById('deviceProperties');
-		var device_uuid = device.uuid;
+		var device_uuid = device1.uuid;
        	var device_name  = device.name;
        	var device_model  = device.model;
        	var device_platform =  device.platform;                        
@@ -72,7 +88,7 @@ $.ajaxSetup({
 	        			      className: "btn-danger",
 	        			      callback: function() {
 	        			    	  
-	        			    	  exit_app();
+	        			    	  	window.location='./server_not_available.html';
 	        			      }
 	        			    
 	        			    }
@@ -218,7 +234,7 @@ $.ajaxSetup({
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  onBackKeyDown();
+        			    	  window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -230,7 +246,7 @@ $.ajaxSetup({
           },
           success: function (token) {   
  
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
