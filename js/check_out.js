@@ -6,7 +6,23 @@ $(document).ready(function(){
     document.addEventListener("deviceready",onDeviceReady,false);       
 });
 
-    function onDeviceReady() {
+   		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     check_out_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function check_out_page(){
    
     	 navigator.geolocation.getCurrentPosition(onSuccess, onError, {timeout: 5000, enableHighAccuracy:true });
     	document.addEventListener("backbutton", onBackKeyDown, false);
@@ -23,6 +39,53 @@ $(document).ready(function(){
     else
     {
     	
+
+
+
+
+$('#exampleInputexpenses1').keypress(function( event ){
+    var key = event.which;
+    var value = $(this).val();
+   
+   if( value.length > 6 )
+   {
+   
+   	event.preventDefault();
+   }
+    if( ! ( key >= 48 && key <= 57 ) && key !=46)
+        event.preventDefault();
+});
+
+$('#exampleInputmileage1').keypress(function( event ){
+    var key = event.which;
+    var value = $(this).val();
+   
+   if( value.length > 4 )
+   {
+   
+   	event.preventDefault();
+   }
+    if( ! ( key >= 48 && key <= 57 ) && key !=46)
+        event.preventDefault();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     	
 	var sch_uuid = getURLParameters('sch_uuid');
@@ -47,7 +110,7 @@ $(document).ready(function(){
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	  window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -120,26 +183,6 @@ $(document).ready(function(){
   $("#checked_in_time_temp_hid").val(checked_in_duration);
   $("#check_in_timestamp").val(check_in_timestamp);
   $("#server_time").val(server_time);
-  
-  devicesec=deviceMobileTime();
-  
-  var  server_time= $('#server_time').val();
-  
-  var devicesec=hmsToSecondsOnly(devicesec);
-  
-  var server_time=hmsToSecondsOnly(server_time);
-  
-  
-  if(devicesec-server_time > 1800 || devicesec-server_time < -2)
- 	{
- 	  $('#hidden_timecheck').val('1');
- 	   $('#duration_time_temp').html('Improper Time'); 
- 	  $('#timer').html('Improper Time'); 
- 	 $("#check_out").prop('disabled', true);
- 	  
- 	}
-
-  
   
   	  
 										  }
@@ -215,7 +258,7 @@ function handleNoGeolocation(errorFlag) {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
-window.onload = function(){}, setInterval(function(){date_duration()}, 1000);
+window.onload = function(){date_duration()}, setInterval(function(){date_duration()}, 1000);
 
 function onBackKeyDown(e) {
 
@@ -224,29 +267,6 @@ function onBackKeyDown(e) {
 	}
 
 function date_duration() {
-	
-	
-	var devicesec=deviceMobileTime();
-	 
-	 var  server_time= $('#server_time').val();
-	 
-	 
-	 var devicesec=hmsToSecondsOnly(devicesec);
-	 
-	 var server_time=hmsToSecondsOnly(server_time);
-	 
-	 
-	 if( devicesec-server_time==-6.666)
-		{
-		 
-		  $('#hidden_timecheck').val('1');
-		   $('#duration_time_temp').html('Improper Time'); 
-		   $('#time1').html('Improper Time'); 
-		   $("#check_out").prop('disabled', true);
-		  
-		}
-		else{
-			$("#check_out").prop('disabled', false);
 var date = new Date();
 currentHours = date.getHours();
 currentHours = ("0" + currentHours).slice(-2);
@@ -264,52 +284,34 @@ sec = ("0" + sec).slice(-2);
     var  checked_in_time_temp= $('#checked_in_time_temp_hid').val();
     if(checked_in_time_temp!='')
      {
-    	
-        var checked_in_time_temp = new Date(checked_in_time_temp);;
-        var curr_date_checked_in_time_temp = checked_in_time_temp.getDate();
-        var curr_month_checked_in_time_temp = checked_in_time_temp.getMonth()+1;
-        var curr_year_checked_in_time_temp = checked_in_time_temp.getFullYear();
-        var d1 = '' + curr_year_checked_in_time_temp  + ' ' + curr_month_checked_in_time_temp + ' ' + curr_date_checked_in_time_temp+ ' ' +checked_in_time_temp.getHours() + ':' +checked_in_time_temp.getMinutes() ;
-        var d1 = new Date(d1);
+    var d1 = moment(checked_in_time_temp,"YYYY-MM-DD HH:mm");
+var d3 = moment();
+ var a=d3.diff(d1);
 
 
-     var mydate = new Date();
-     var curr_date = mydate.getDate();
-     var curr_month = mydate.getMonth()+1;
-     var curr_year = mydate.getFullYear();
-     var mydatestr = '' + curr_year  + ' ' + curr_month + ' ' + curr_date+ ' ' +mydate.getHours() + ':' +mydate.getMinutes() ;
-
-     var d3 = new Date(mydatestr);
-
-     
-     
-     
+             
+     // Do your operations
+      
+     //End Time
+     //var d2 = new Date();
      //x=d1.getTime() - d2.getTime();
      // x=d2.getTime() - d1.getTime();
-      x=d3.getTime() - d1.getTime();
-
      
      //Time difference in milli seconds
     // document.write("Your Operation took  " + (d2.getTime() - d1.getTime()) + " milliseconds");
-      checkintimediff=msToTime(x);
-      var hidden_timecheck=$('#hidden_timecheck').val();
-     
-      $('#duration_time_temp').html(checkintimediff);
+      checkintimediff=msToTime(a);
       
+      $('#duration_time_temp').html(checkintimediff);
       var  check_in_timestamp= $('#check_in_timestamp').val();
       //alert("check in timestamp"+ check_in_timestamp);
      var zone=timezoneDetect(check_in_timestamp);
      //alert("zone detect"+zone);
-     
-      
       if(zone=='false')
        {
    	   
    	   $('#duration_time_temp').html('Improper Timezone');
-   	   $('#timer').html('Improper Time'); 
- 	 $("#check_out").prop('disabled', true);
        }
-    /*  devicesec=deviceMobileTime();
+      devicesec=deviceMobileTime();
       var  server_time= $('#server_time').val();
     
       var devicesec=hmsToSecondsOnly(devicesec);
@@ -320,11 +322,11 @@ sec = ("0" + sec).slice(-2);
    	{
    	  
    	   $('#duration_time_temp').html('Improper Time'); 
-   	}*/
+   	}
     	
      }
     
-		}        
+         
 }
 		
 
@@ -494,7 +496,7 @@ function timezoneDetect(timezone)
 		var visit_type_id = getURLParameters('visit_type_id');
 		var patient_uuid = getURLParameters('patient_uuid');
 		var user_id = getURLParameters('user_id');
-		var device_uuid = device.uuid;*/
+		var device_uuid = device1.uuid;*/
 		
 	 var exampleInputexpenses1=$("#exampleInputexpenses1").val();
 	  
@@ -604,7 +606,7 @@ function timezoneDetect(timezone)
 											
 			
 				
-	var device_uuid = device.uuid;
+	var device_uuid = device1.uuid;
 	var latitude=$('input#latitude').val();
 	var longitude=$('input#longitude').val();
 	var sch_uuid = getURLParameters('sch_uuid');
@@ -667,7 +669,7 @@ function timezoneDetect(timezone)
 		  },
           success: function (token) {   
 		
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -778,7 +780,7 @@ function timezoneDetect(timezone)
 			else
 				sizedWindowWidth = sizedWindowWidth - 50;
 			 
-			 $("#canvas").width(299);
+			 $("#canvas").width(280);
 			 $("#canvas").height(125);
 			 $("#canvas").css("border","1px solid #000");
 			
