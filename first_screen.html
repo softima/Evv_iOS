@@ -34,6 +34,7 @@ function onResume() {
     var networkState = navigator.connection.type;
     if (networkState == Connection.NONE)
     {
+    	navigator.splashscreen.show();
         window.location='./first_screen.html';
        
     }
