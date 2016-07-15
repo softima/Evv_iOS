@@ -2,7 +2,6 @@
 		
 /*	alert("Doc Ready First");
 	
-	
 	var date = new Date();
 	alert("time zones"+date.toTimeString());
 	var removev=date.toTimeString();
@@ -32,10 +31,28 @@
 	     //alert('browser_height'+browser_height);
 	 }
 
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     index_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
 		function onDeviceReady() {
+		
+
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function index_page(){
 			
  		var element = document.getElementById('deviceProperties');
-		var device_uuid = device.uuid;
+		var device_uuid = device1.uuid;
        
  	var networkState = navigator.connection.type;
     if (networkState == Connection.NONE)
@@ -66,38 +83,8 @@
           type:"get",
           dataType:"text",
           crossDomain: true,
-          timeout: 30000,
+          timeout: 20000,
           error:function (jqXHR, textStatus, errorThrown) {
-		    alert("error");
-			alert('Basic Uncaught Error.n' + jqXHR.responseText);
-			if (jqXHR.status === 0)
-    {
-        alert('Not connect.n Verify Network.');
-    }
-    else if (jqXHR.status == 404)
-    {
-        alert('Requested page not found. [404]');
-    }
-    else if (jqXHR.status == 500)
-    {
-        alert('Internal Server Error [500].');
-    }
-    else if (exception === 'parsererror')
-    {
-        alert('Requested JSON parse failed.');
-    }
-    else if (exception === 'timeout')
-    {
-        alert('Time out error.');
-    }
-    else if (exception === 'abort')
-    {
-        alert('Ajax request aborted.');
-    }
-    else
-    {
-        alert('Uncaught Error.n' + jqXHR.responseText);
-    }
         	  if(textStatus==="timeout") {
         		  bootbox.dialog({
         			  closeButton: false,
@@ -109,7 +96,7 @@
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	  window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -121,7 +108,7 @@
           },
           success: function (token) {   
 
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -138,7 +125,7 @@
 	             $.ajax({
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/is_device_registered',
               type: "post",
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
               timeout: 20000,
               crossDomain: true,
@@ -156,7 +143,7 @@
 	        			      className: "btn-danger",
 	        			      callback: function() {
 	        			    	  
-	        			    	  exit_app();
+	        			    	 window.location='./server_not_available.html';
 	        			      }
 	        			    
 	        			    }
@@ -176,7 +163,7 @@
       className: "btn-danger",
       callback: function() {
     	  
-    	  exit_app();
+    	 window.location='./server_not_available.html';
       }
     
     }
@@ -191,6 +178,8 @@
 							if(data.is_security_question_answered==1 && data.logindata[0].count>=1)
       {
    
+    //window.location='./internet_check.html';
+     
       window.location='./log-in.html';
       return false;
       }
@@ -215,3 +204,5 @@
 }
 }
     			
+
+
