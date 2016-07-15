@@ -21,6 +21,14 @@ var networkState = navigator.connection.type;
 	}
 }
 
+function restartApplication() {
+  var initialHref = window.location.href;
+  // Show splash screen (useful if your app takes time to load) 
+  navigator.splashscreen.show();
+  // Reload original app url (ie your index.html file)
+  window.location = initialHref;
+}
+
 
 function logout()
 {
