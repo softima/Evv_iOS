@@ -28,7 +28,13 @@ function fail(uuid)
     
 		function onDeviceReady() {
                        window.plugins.uniqueDeviceID.get(success, fail);
+                       document.addEventListener("resume", onResume, false);
     }
+    
+    function onResume() {
+	 restartApplication();
+	 }
+    
     function check_out_page(){
     	
 		
