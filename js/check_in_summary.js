@@ -17,12 +17,17 @@ function success(uuid)
      check_in_summary_page();
 };		
 
+function onResume() {
+	 restartApplication();
+	 }
+
 function fail(uuid)		
 {		};	
     
     
 		function onDeviceReady() {
                        window.plugins.uniqueDeviceID.get(success, fail);
+                       document.addEventListener("resume", onResume, false);
     }
     function check_in_summary_page(){
     document.addEventListener("backbutton", onBackKeyDown, false);
