@@ -13,7 +13,7 @@ function logout()
 	  
 	   
     $.ajax({
-      url:"http://183.82.96.212:8080/services/session/token",
+      url:"https://mmportal.ondemandhc.net/services/session/token",
       type:"get",
       dataType:"text",
       error:function (jqXHR, textStatus, errorThrown) {
@@ -24,7 +24,7 @@ function logout()
     	  alert(token);
 	
 	$.ajax({
-	 url:"http://183.82.96.212:8080/m_service/user/logout",
+	 url:"https://mmportal.ondemandhc.net/m_service/user/logout",
 	 type:"POST",
 	 dataType:"json",	
 	 success:function(data)
