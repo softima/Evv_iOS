@@ -12,14 +12,31 @@ function onBackKeyDown(e) {
 
 
 
-      function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     create_pin_page();
+};		
+
+function fail(uuid)		
+{	};	
+    
+    
+		function onDeviceReady() {
+                    
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function create_pin_page(){
     			
     document.addEventListener("backbutton", onBackKeyDown, false);
     var element = document.getElementById('deviceProperties');
 
 
  
-       var device_uuid = device.uuid;
+       var device_uuid = device1.uuid;
            
 document.getElementById('device_uuid').value=device_uuid;
 
@@ -169,7 +186,7 @@ document.getElementById('device_uuid').value=device_uuid;
     {
 		var new_device_pin=$('input#new_device_pin').val();
 		var confirm_device_pin=$('input#confirm_device_pin').val();
-		var device_uuid = device.uuid;
+		var device_uuid = device1.uuid;
 	
        			
 		var pin = document.getElementById("new_device_pin").value;
@@ -215,7 +232,7 @@ document.getElementById('device_uuid').value=device_uuid;
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	  	window.location='./patient_selection.html';
         			      }
         			    
         			    }
@@ -265,7 +282,7 @@ document.getElementById('device_uuid').value=device_uuid;
 			      label: "OK",
 			      className: "btn-danger",
 			      callback: function() {
-			   
+			   	window.location='./patient_selection.html';
 			   }
 			    
 			    }
