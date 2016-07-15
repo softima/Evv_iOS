@@ -11,16 +11,43 @@
     		<script src="plugins/jquery-1.11.2.min.js"></script>
     		<script src="plugins/jquery-1.11.2.js"></script>
     		<script type="text/javascript" src="cordova.js"></script>
+    		<script type="text/javascript">
+    		function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+// device APIs are available
+//
+function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
+    document.addEventListener("menubutton", onMenuKeyDown, false);
+    // Add similar listeners for other events
+}
+
+function onPause() {
+    // Handle the pause event
+}
+
+function onResume() {
+    // Handle the resume event
+    alert("event Resumed");
+}
+
+function onMenuKeyDown() {
+    // Handle the menubutton event
+}
+    		</script>
     		
 </head>
 
-<body>
+<body onload="onLoad()">
  <form method="post" onsubmit="navigator.app.exitApp();" role="global" style="position: relative;top: 80px;">
                  <center><img src="images/homecare_logo.png" class="img-responsive" alt="logo" style="HEIGHT:62PX;"/></center>
           
           
  <div class='alert alert-info' role='alert'>This app requires internet connection. Make sure you are connected to a wifi network or have switched on your network data.</div>
  </body>
- <button type="submit" name="go" id="submit_button" class="btn btn-lg btn-primary btn-block">Close</button>
+ <button type="submit" name="go" id="submit_button" class="btn btn-lg btn-primary btn-block">Try Again</button>
          
 </html>
