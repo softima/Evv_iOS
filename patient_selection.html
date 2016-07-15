@@ -56,14 +56,7 @@ overflow-x: hidden;
 		
 function myFunction(identifier){
 
-var networkState = navigator.connection.type;
-    if (networkState == Connection.NONE)
-    {
-      window.location='./first_screen.html';
-               return false;
-    }
-    else
-    {
+
 $(".checkin_button").prop('disabled', true);
 
 //$(".checkin_button").attr('disabled','disabled');
@@ -74,11 +67,34 @@ $(".checkin_button").prop('disabled', true);
 			navigator.geolocation.getCurrentPosition(ShowPosition, ShowError, options);
 			return false;
 			}
-			}
-				        
-	 
-	function onDeviceReady() {
+
+var device1;			
+
+function success(uuid)		
+{		
+
+
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+ 	//alert(device1.uuid);
+	  patient_selection_function();
+};		
+
+function fail(uuid)		
+{		
+   	    		
 	
+};			
+	 function onDeviceReady()
+	 {
+	    window.plugins.uniqueDeviceID.get(success, fail);
+
+
+	
+	 
+	 }	 
+	function patient_selection_function() {
+	
+	//alert(device1.uuid);
 var onclick_id='';
 
 
@@ -126,7 +142,7 @@ var onclick_id='';
 	        			      className: "btn-danger",
 	        			      callback: function() {
 	        			    	  
-	        			    	  exit_app();
+	        			    	 window.location='./server_not_available.html';
 	        			      }
 	        			    
 	        			    }
@@ -139,7 +155,7 @@ var onclick_id='';
           },
           success: function (token) {   
  
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -147,11 +163,12 @@ var onclick_id='';
         xhr.setRequestHeader(header, token);
     });
 	
+	//alert(device1.uuid);
             $.ajax({
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_schedules',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
                timeout:20000,
               crossDomain: true,
@@ -169,7 +186,7 @@ var onclick_id='';
       className: "btn-danger",
       callback: function() {
       
-
+window.location='./server_not_available.html';
       }
     
     }
@@ -352,6 +369,7 @@ $('#collapse2').on('.panel-collapse.collapse.in'), function() {
 
    function ShowPosition(position) {
    
+   
    onclick_id_href=onclick_id;
      var value = $('#'+onclick_id_href).attr("href");
    	window.location.href =value;
@@ -359,6 +377,29 @@ $('#collapse2').on('.panel-collapse.collapse.in'), function() {
 			    
 			}
 		 function ShowError(error) {
+		 
+		 bootbox.dialog({
+	closeButton: false,
+	  message: "Location is not enabled. Kindly turn it on by going to Settings-->Privacy-->Location Services-->On.",
+	  title: "Need access to Location",
+	  buttons: {
+	    success: {
+	      label: "Settings",
+	      className: "btn-primary",
+	      callback: function() {
+	    	   cordova.plugins.diagnostic.switchToSettings(successCallback, errorCallback);
+	      }
+	    },
+	    danger: {
+	      label: "Cancel",
+	      className: "btn-warning",
+	      callback: function() {
+	        
+	      }
+	    }
+	    
+	  }
+	});
 		 
 		 
 		 $(".checkin_button").prop('disabled', false);
@@ -372,6 +413,20 @@ $('#collapse2').on('.panel-collapse.collapse.in'), function() {
        
     				}
 		 }
+		 
+		 
+		 function successCallback()
+		 {
+		 
+		 }
+		 
+		 function errorCallback()
+		 {
+		 
+		 }
+		 
+		 
+		 
         </script>
 </head>
 
