@@ -11,7 +11,23 @@ $(document).ready(function(){
 });
 
 
-    function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     login_page();
+};		
+
+function fail(uuid)		
+{	};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function login_page(){
 
 
 
@@ -24,7 +40,7 @@ $(document).ready(function(){
  
 
 
-       var device_uuid = device.uuid;
+       var device_uuid = device1.uuid;
        document.getElementById('device_uuid').value=device_uuid;
         	var device_version =  device.version;  
         	document.getElementById('device_version').value=device_version;
@@ -233,7 +249,7 @@ var loginpin = /^\d{4}$/;
 	        			      className: "btn-danger",
 	        			      callback: function() {
 	        			    	  
-	        			    	  onBackKeyDown();
+	        			    	 window.location='./server_not_available.html';
 	        			      }
 	        			    
 	        			    }
@@ -297,7 +313,7 @@ var loginpin = /^\d{4}$/;
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -309,7 +325,7 @@ var loginpin = /^\d{4}$/;
           },
           success: function (token) {   
 
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -321,7 +337,7 @@ var loginpin = /^\d{4}$/;
               url: 'https://mmportal.ondemandhc.net/m_service/m_resources/evv_enabled_login',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
               crossDomain: true,
              timeout: 10000,
@@ -341,7 +357,7 @@ var loginpin = /^\d{4}$/;
 		      className: "btn-danger",
 		      callback: function() {
 		  
-		    	  
+		    	  window.location='./server_not_available.html';
 		    
 		      }
 		    
