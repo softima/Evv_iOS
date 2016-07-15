@@ -15,12 +15,18 @@ function success(uuid)
      check_out_page();
 };		
 
+function onResume() {
+	 restartApplication();
+	 }
+
+
 function fail(uuid)		
 {		};	
     
     
 		function onDeviceReady() {
                        window.plugins.uniqueDeviceID.get(success, fail);
+                       document.addEventListener("resume", onResume, false);
     }
     function check_out_page(){
    
