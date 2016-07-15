@@ -31,21 +31,8 @@ function onPause() {
 
 function onResume() {
     // Handle the resume event
-   var networkState = navigator.connection.type;
-    if (networkState == Connection.NONE)
-    {
-     
-        
-     
-                window.location='./first_screen.html';
-                return true;
-    }
-    else
-{
-	 window.location='./index.html';
-                return true;
-	
-}	
+    restartApplication();
+   
 }
 
 function onMenuKeyDown() {
