@@ -6,7 +6,23 @@ $(document).ready(function(){
 	
 	document.addEventListener("deviceready",onDeviceReady,false);       
 }); 		
-   function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     visit_details_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function visit_details_page(){
 	   document.addEventListener("backbutton", onBackKeyDown, false);
    		var element = document.getElementById('deviceProperties');
 				
@@ -52,7 +68,7 @@ $(document).ready(function(){
         			      className: "btn-danger",
         			      callback: function() {
         			    	  
-        			    	  exit_app();
+        			    	 window.location='./server_not_available.html';
         			      }
         			    
         			    }
@@ -65,7 +81,7 @@ $(document).ready(function(){
           },
           success: function (token) {   
 
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -95,7 +111,7 @@ $(document).ready(function(){
 		      className: "btn-danger",
 		      callback: function() {
 		  
-		     
+		     	window.location='./server_not_available.html';
 		    
 		      }
 		    
