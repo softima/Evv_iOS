@@ -69,7 +69,7 @@ function fail(uuid)
 		  
 		   
         $.ajax({
-          url:"https://mmportal.ondemandhc.net/services/session/token",
+          url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
            crossDomain: true,
@@ -107,7 +107,7 @@ function fail(uuid)
     });
 	
             $.ajax({
-              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_security_questions',
+              url: 'http://183.82.96.212:8095/m_service/m_resources/get_security_questions',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: 'device_uuid='+device1.uuid,
@@ -301,7 +301,7 @@ var networkState = navigator.connection.type;
 		   var user_id = getURLParameters('user_id');
 	     
         $.ajax({
-          url:"https://mmportal.ondemandhc.net/services/session/token",
+          url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -339,7 +339,7 @@ var networkState = navigator.connection.type;
     });
 	
             $.ajax({
-              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/save_portal_security_answers',
+              url: 'http://183.82.96.212:8095/m_service/m_resources/save_portal_security_answers',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: { uid:user_id,question_id:security_question, answer:security_answer},
