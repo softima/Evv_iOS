@@ -210,7 +210,7 @@ document.getElementById('device_uuid').value=device_uuid;
 		  
 		   
         $.ajax({
-          url:"https://mmportal.ondemandhc.net/services/session/token",
+          url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -259,7 +259,7 @@ document.getElementById('device_uuid').value=device_uuid;
     });
 	
             $.ajax({
-              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/create_new_pin',
+              url: 'http://183.82.96.212:8095/m_service/m_resources/create_new_pin',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: {device_uuid:device_uuid,pin:pin},
