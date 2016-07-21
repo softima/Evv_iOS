@@ -640,7 +640,7 @@ function timezoneDetect(timezone)
     });
 
 		$.ajax({
-          url:"https://mmportal.ondemandhc.net/services/session/token",
+          url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
