@@ -84,7 +84,7 @@ var networkState = navigator.connection.type;
 							var device_uuid = device1.uuid;
 		       				var issue_input=$('#issue_input').val();
 		        $.ajax({
-		          url:"https://mmportal.ondemandhc.net/services/session/token",
+		          url:"http://183.82.96.212:8095/services/session/token",
 		          type:"get",
 		          dataType:"text",
 		          timeout: 20000,
@@ -113,7 +113,7 @@ var networkState = navigator.connection.type;
     });
 	
             $.ajax({
-              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/save_device_issues',
+              url: 'http://183.82.96.212:8095/m_service/m_resources/save_device_issues',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		 data: { device_uuid:device_uuid,issues:issue_input},
