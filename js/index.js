@@ -105,7 +105,7 @@ function fail(uuid)
     });
 
 		$.ajax({
-          url:"https://mmportal.ondemandhc.net/services/session/token",
+          url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
           crossDomain: true,
@@ -149,7 +149,7 @@ function fail(uuid)
  function is_device_registered(device_uuid)
 {
 	             $.ajax({
-              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/is_device_registered',
+              url: 'http://183.82.96.212:8095/m_service/m_resources/is_device_registered',
               type: "post",
       		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
