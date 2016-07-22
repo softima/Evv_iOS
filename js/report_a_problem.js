@@ -113,8 +113,8 @@ function fail(uuid)
         xhr.setRequestHeader(header, token);
     });
 	
-		alert("Device Value");
-			alert(device_uuid);
+		//alert("Device Value");
+			//alert(device_uuid);
 	
 	
 	
