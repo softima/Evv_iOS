@@ -51,9 +51,9 @@ document.getElementById('device_uuid').value=device_uuid;
     {
 	}
 	}
-	function device_pin_validation(new_device_pin)
+	function device_pin_validation()
 			{
-
+              alert(" inside pin validation");
 		if(document.getElementById("new_device_pin").value == "")
 			{
 			bootbox.dialog({
