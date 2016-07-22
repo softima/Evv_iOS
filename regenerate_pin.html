@@ -9,7 +9,6 @@
 			<link rel='stylesheet' href='style.css' type='text/css'/> 
 			
     		<link rel="stylesheet" href="bootstrap-3.3.4/css/bootstrap.min.css" media="screen" type="text/css" />
-     		<script src="bootstrap-3.3.4/js/bootstrap.min.js"></script>
      		<script src="plugins/jquery-1.11.2.min.js"></script>
     		<script src="plugins/jquery-1.11.2.js"></script>
     		<script type="text/javascript" src="cordova.js"></script>
@@ -20,30 +19,13 @@
         	<script src="plugins/bootbox.min.js"></script>
     		
     		
-    		<script>
-	$(document).ready(function(){
-				
-
-    document.addEventListener("deviceready",onDeviceReady,false);       
-});
-		
-function onDeviceReady() {
-	
- document.addEventListener("backbutton", onBackKeyDown, false);
- }
-
-function onBackKeyDown(e) {
-
-  e.preventDefault();
- 
-}
-</script>    	
     		
 </head>
 
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<a href="patient_selection.html" onclick="window.history.go(-1); return false;"><img src="images/backbutton.png" alt style="height: 50px;float: left;""></a>
+		<a href="patient_selection.html" onclick="window.history.go(-1); return false;">
+                    <img src="images/backbutton.png" alt style="height: 50px;float: left;"></a>
      	<div class="container">
         <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -53,7 +35,7 @@ function onBackKeyDown(e) {
         <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">
-        <img src="images/homecare_logo.png" alt style="height: 39px;margin-top: -8px;"">
+        <img src="images/homecare_logo.png" alt style="height: 39px;margin-top: -8px;">
         </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
