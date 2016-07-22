@@ -42,7 +42,7 @@ function fail(uuid)
     }
     
     function onResume() {
-	 restartApplication();
+	 //restartApplication();
 	 }
     
     
