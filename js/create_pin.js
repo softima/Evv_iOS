@@ -53,7 +53,7 @@ document.getElementById('device_uuid').value=device_uuid;
 	}
 	function device_pin_validation()
 			{
-              alert(" inside pin validation");
+             // alert(" inside pin validation");
 		if(document.getElementById("new_device_pin").value == "")
 			{
 			bootbox.dialog({
@@ -188,9 +188,9 @@ document.getElementById('device_uuid').value=device_uuid;
 		var confirm_device_pin=$('input#confirm_device_pin').val();
 		var device_uuid = device1.uuid;
 	
-       			alert("device_uuid"+device_uuid);
+       			//alert("device_uuid"+device_uuid);
 		var pin = document.getElementById("new_device_pin").value;
-		alert("pin"+pin);
+		//alert("pin"+pin);
 		
 		
 		 $.ajaxSetup({
@@ -293,7 +293,7 @@ document.getElementById('device_uuid').value=device_uuid;
                
               },
               success: function (data) {
-			  alert("success");
+			  //alert("success");
 			   bootbox.dialog({
 				   		closeButton: false,
       					  message: "New PIN created successfully.",
