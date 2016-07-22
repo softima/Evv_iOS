@@ -58,7 +58,23 @@ overflow-x: hidden;
 
 				        
 	 
-	function onDeviceReady() {
+		
+		    var device1;			
+
+function success(uuid)		
+{		
+     device1 = {uuid:uuid,device_model:"",device_platform:"",device_version:""};
+     show_other_schedules_page();
+};		
+
+function fail(uuid)		
+{		};	
+    
+    
+		function onDeviceReady() {
+                       window.plugins.uniqueDeviceID.get(success, fail);
+    }
+    function show_other_schedules_page(){
 document.addEventListener("backbutton", onBackKeyDown, false);
 	         $(".col").hide();
        			  
@@ -114,7 +130,7 @@ document.addEventListener("backbutton", onBackKeyDown, false);
           },
           success: function (token) {   
  
-   	var device_uuid = device.uuid;
+   	var device_uuid = device1.uuid;
 	var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
@@ -126,7 +142,7 @@ document.addEventListener("backbutton", onBackKeyDown, false);
               url: 'http://183.82.96.212:8095/m_service/m_resources/get_all_schedules',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
-      		  data: 'device_uuid='+device.uuid,
+      		  data: 'device_uuid='+device1.uuid,
               dataType: "json",
                timeout:20000,
               crossDomain: true,
