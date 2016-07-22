@@ -188,9 +188,9 @@ document.getElementById('device_uuid').value=device_uuid;
 		var confirm_device_pin=$('input#confirm_device_pin').val();
 		var device_uuid = device1.uuid;
 	
-       			
+       			alert("device_uuid"+device_uuid);
 		var pin = document.getElementById("new_device_pin").value;
-		
+		alert("pin"+pin);
 		
 		
 		 $.ajaxSetup({
@@ -213,7 +213,7 @@ document.getElementById('device_uuid').value=device_uuid;
           url:"http://183.82.96.212:8095/services/session/token",
           type:"get",
           dataType:"text",
-          timeout:20000,
+          timeout:30000,
            crossDomain: true,
           error:function (jqXHR, textStatus, errorThrown) {
         	  $('#submit_button').prop('disabled', false);
@@ -293,7 +293,7 @@ document.getElementById('device_uuid').value=device_uuid;
                
               },
               success: function (data) {
-			  
+			  alert("success");
 			   bootbox.dialog({
 				   		closeButton: false,
       					  message: "New PIN created successfully.",
