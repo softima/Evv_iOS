@@ -32,7 +32,7 @@ function fail(uuid)
     }
     
     function onResume() {
-	 restartApplication();
+	// restartApplication();
 	 }
     
     function check_out_page(){
