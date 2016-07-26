@@ -157,7 +157,7 @@ function fail(uuid)
                
               },
               success: function (data) {
-			  
+			  	 $('#submit').html('Submit');
 			   bootbox.dialog({
 				   closeButton: false,
   message: "Thank you for reporting.",
