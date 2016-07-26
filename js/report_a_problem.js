@@ -106,7 +106,7 @@ function fail(uuid)
 			
 			var device_uuid = device1.uuid;
 		
-	var d = document.getElementById("device_uuid");
+	//var d = document.getElementById("device_uuid");
 	var token =token;
 	var header = "X-CSRF-TOKEN";
     $(document).ajaxSend(function(e, xhr, options) {
@@ -114,7 +114,7 @@ function fail(uuid)
     });
 	
 		//alert("Device Value");
-			//alert(device_uuid);
+			alert(device_uuid);
 	
 	
 	
