@@ -160,6 +160,7 @@ function fail(uuid)
 			  	 $('#submit').html('Loading...');
 			    	$('#submit').prop('disabled', false);
 			    	$('#issue_input').prop('disabled', false);
+			    	$('#issue_input').val('');
 			    	 $('#submit').html('Submit');
 			   bootbox.dialog({
 				   closeButton: false,
