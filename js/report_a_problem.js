@@ -157,7 +157,10 @@ function fail(uuid)
                
               },
               success: function (data) {
-			  	 $('#submit').html('Submit');
+			  	 $('#submit').html('Loading...');
+			    	$('#submit').prop('disabled', false);
+			    	$('#issue_input').prop('disabled', false);
+			    	 $('#submit').html('Submit');
 			   bootbox.dialog({
 				   closeButton: false,
   message: "Thank you for reporting.",
