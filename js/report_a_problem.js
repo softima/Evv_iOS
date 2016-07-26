@@ -124,7 +124,7 @@ function fail(uuid)
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		 data: { device_uuid:device_uuid,issues:issue_input},
               dataType: "json",
-              timeout: 30000,
+              timeout: 20000,
               crossDomain: true,
               
               
