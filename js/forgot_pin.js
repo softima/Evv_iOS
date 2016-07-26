@@ -29,6 +29,13 @@ function fail(uuid)
 		function onDeviceReady() {
                        window.plugins.uniqueDeviceID.get(success, fail);
     }
+    
+    function onBackKeyDown(e) {
+			 
+				navigator.app.backHistory();
+			 
+			}
+    
     function forgot_pin_page(){
         
     	 document.addEventListener("backbutton", onBackKeyDown, false);
