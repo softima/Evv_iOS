@@ -77,7 +77,7 @@ function fail(uuid)
 					}
 					else
 					{
-						alert("Else");
+						//alert("Else");
 						$('#submit').html('Loading...');
 				    	$('#submit').prop('disabled', true);
 				    	$('#issue_input').prop('disabled', true);
