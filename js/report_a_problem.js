@@ -114,7 +114,7 @@ function fail(uuid)
     });
 	
 		//alert("Device Value");
-			alert(device_uuid);
+			//alert(device_uuid);
 	
 	
 	
@@ -124,7 +124,7 @@ function fail(uuid)
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		 data: { device_uuid:device_uuid,issues:issue_input},
               dataType: "json",
-              timeout: 20000,
+              timeout: 30000,
               crossDomain: true,
               
               
