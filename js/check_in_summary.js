@@ -18,7 +18,7 @@ function success(uuid)
 };		
 
 function onResume() {
-	// restartApplication();
+	 onDeviceReady();
 	 }
 
 function fail(uuid)		
