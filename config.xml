@@ -21,7 +21,7 @@
         id        = "web.application.attendancesystem"
         version   = "2.0.0"
         xmlns:gap = "http://phonegap.com/ns/1.0">
-    <name>Evv iOS Final</name>
+    <name>ODHC</name>
 
     <description>
        This is a ios Phonegap Application
@@ -38,7 +38,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="stay-in-webview" value="true" />
-	<preference name="phonegap-version" value="3.3.0" />
+	<preference name="phonegap-version" value="cli-6.0.0" />
     <preference name="loglevel" value="DEBUG" />
       <preference name="SplashScreen" value="splash" />
       <preference name="backgroundColor" value="0xFFF" />
