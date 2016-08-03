@@ -18,7 +18,8 @@ function success(uuid)
 };		
 
 function onResume() {
-	// onDeviceReady();
+	alert("event resumed");
+	 onDeviceReady();
 	 }
 
 function fail(uuid)		
@@ -26,6 +27,7 @@ function fail(uuid)
     
     
 		function onDeviceReady() {
+			alert("check in");
                        window.plugins.uniqueDeviceID.get(success, fail);
                        document.addEventListener("resume", onResume, false);
     }
