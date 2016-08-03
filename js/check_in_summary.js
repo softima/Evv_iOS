@@ -528,13 +528,7 @@ function ShowError(error) {
 	  message: "Location is not enabled. Kindly turn it on by going to Settings-->Privacy-->Location Services-->On.",
 	  title: "Need access to Location",
 	  buttons: {
-	    success: {
-	      label: "Settings",
-	      className: "btn-primary",
-	      callback: function() {
-	    	   cordova.plugins.diagnostic.switchToSettings(successCallback, errorCallback);
-	      }
-	    },
+	    
 	    danger: {
 	      label: "Cancel",
 	      className: "btn-warning",
