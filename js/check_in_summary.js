@@ -19,7 +19,8 @@ function success(uuid)
 
 function onResume() {
 	//alert("event resumed");
-	 onDeviceReady();
+	 //onDeviceReady();
+	 check_in_summary_page();
 	 }
 
 function fail(uuid)		
