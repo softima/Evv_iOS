@@ -47,6 +47,7 @@
       <preference name="disallowOverscroll" value="true" />
    	  <preference name="SplashScreen" value="screen" />
       <preference name="SplashScreenDelay" value="10000" />
+      <preference name="StatusBarOverlaysWebView" value="true" />
       <preference name="ios-orientation-iphone" value="portrait" />
 <preference name="ios-orientation-ipad" value="portrait and landscape" />
       	<gap:platform name="ios" />
