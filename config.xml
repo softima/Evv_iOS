@@ -50,13 +50,14 @@
       <preference name="StatusBarOverlaysWebView" value="true" />
       <preference name="ios-orientation-iphone" value="portrait" />
 <preference name="ios-orientation-ipad" value="portrait and landscape" />
+<preference name="Orientation" value="portrait" />
       	<gap:platform name="ios" />
       	<gap:platform name="android" />
       	<gap:platform name="winphone" />
       
     
      <splash src="res/homecare_logo.png" />
-    
+    <gap:splash src="Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
      <icon src="res/homecarelogo.png" />
   <gap:plugin name="org.apache.cordova.core.camera" />
 
