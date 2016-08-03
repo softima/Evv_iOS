@@ -19,8 +19,8 @@ function success(uuid)
 
 function onResume() {
 	//alert("event resumed");
-	 //onDeviceReady();
-	 check_in_summary_page();
+	 onDeviceReady();
+	 //check_in_summary_page();
 	 }
 
 function fail(uuid)		
@@ -28,7 +28,7 @@ function fail(uuid)
     
     
 		function onDeviceReady() {
-			//alert("check in");
+			alert("check in");
                        window.plugins.uniqueDeviceID.get(success, fail);
                        document.addEventListener("resume", onResume, false);
     }
