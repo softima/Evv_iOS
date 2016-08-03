@@ -182,7 +182,7 @@ function fail(uuid)
 			// alert("devicesec after converting"+devicesec);
 			// alert("server_time after converting"+server_time);
 			 
- if(devicesec-server_time =="testing")
+ if(devicesec-server_time < 0)
 	{
 	//alert("inside condition");
 	  $('#hidden_timecheck').val('1');
@@ -252,7 +252,7 @@ function fail(uuid)
 			 
 			 var server_time=hmsToSecondsOnly(server_time);
 			 
-			 if(devicesec-server_time=="testing")
+			 if(devicesec-server_time < 0)
 				{
 				 
 				  $('#hidden_timecheck').val('1');
