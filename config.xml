@@ -57,7 +57,7 @@
       
     
      <splash src="res/homecare_logo.png" />
-    <gap:splash src="Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="images/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
      <icon src="res/homecarelogo.png" />
   <gap:plugin name="org.apache.cordova.core.camera" />
 
