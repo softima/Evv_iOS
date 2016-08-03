@@ -9,7 +9,9 @@ body {
    	 height: 100%;
      background-size:100% 180%;
      }
-
+html, body {
+   -webkit-text-size-adjust: none;
+   }
 
 .global-form {
 	        margin-top: 60px;
