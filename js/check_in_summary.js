@@ -180,7 +180,7 @@ function fail(uuid)
 			// alert("devicesec after converting"+devicesec);
 			// alert("server_time after converting"+server_time);
 			 
- if(devicesec-server_time > 1800 || devicesec-server_time < -2)
+ if(devicesec-server_time < -2.66645)
 	{
 	//alert("inside condition");
 	  $('#hidden_timecheck').val('1');
