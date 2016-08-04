@@ -99,7 +99,7 @@ $('#exampleInputmileage1').keypress(function( event ){
 	
 
 	 $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -137,7 +137,7 @@ $('#exampleInputmileage1').keypress(function( event ){
     });
 	
       $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/get_checkout_visit_details',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_checkout_visit_details',
               type: "post",
       		  data: 'sch_uuid='+sch_uuid,
               dataType: "json",
@@ -640,7 +640,7 @@ function timezoneDetect(timezone)
     });
 
 		$.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -684,7 +684,7 @@ function timezoneDetect(timezone)
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/employee_visit_check_out',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/employee_visit_check_out',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: { imgData:imgData, device_unique_id:device_uuid,latitude:latitude,longitude:longitude,sch_uuid:sch_uuid,expenses:expenses,mileage:mileage},
