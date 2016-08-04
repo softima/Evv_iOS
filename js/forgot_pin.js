@@ -63,7 +63,7 @@ function fail(uuid)
 	 
 		   
         $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -102,7 +102,7 @@ function fail(uuid)
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/get_registered_emails',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_registered_emails',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: 'device_uuid='+device1.uuid,
@@ -164,7 +164,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 		  
 		   
         $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -203,7 +203,7 @@ for (var i = 0; i < data.emails.length; ++i) {
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/get_portal_security_questions',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_portal_security_questions',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: 'device_uuid='+device1.uuid,
@@ -453,7 +453,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 
 		   
         $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -500,7 +500,7 @@ for (var i = 0; i < data.emails.length; ++i) {
     
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/send_email',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/send_email',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: {device_uuid:device_uuid,email_id:email,question_id:security_question,answer:security_answer,user_uuid:user_uuid},
@@ -652,7 +652,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 
 
 
-		$.post( "http://183.82.96.212:8095/m_service/m_resources/send_email" , {device_uuid:device_uuid,email_id:email,question_id:security_question,answer:security_answer}, function( data ) {
+		$.post( "https://mmportal.ondemandhc.net/m_service/m_resources/send_email" , {device_uuid:device_uuid,email_id:email,question_id:security_question,answer:security_answer}, function( data ) {
 
 
 			 bootbox.dialog({
@@ -721,7 +721,7 @@ for (var i = 0; i < data.emails.length; ++i) {
 		  
 		   
         $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -761,7 +761,7 @@ for (var i = 0; i < data.emails.length; ++i) {
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/alert_admin',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/alert_admin',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: 'device_uuid='+device1.uuid,
@@ -970,7 +970,7 @@ var device_uuid = device1.uuid;
     				
     				
 				  $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -1015,7 +1015,7 @@ var device_uuid = device1.uuid;
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/check_user_valid',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/check_user_valid',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: {username:username,password:password,device_uuid:device_uuid},
