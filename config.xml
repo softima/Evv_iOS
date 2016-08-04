@@ -36,6 +36,9 @@
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />
+    <platform name="ios">
+        <preference name="Orientation" value="portrait" />
+    </platform>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="stay-in-webview" value="true" />
 	<preference name="phonegap-version" value="3.3.0" />
