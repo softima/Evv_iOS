@@ -67,7 +67,7 @@
       
     
      <splash src="res/homecare_logo.png" />
-   
+     <gap:preference name="Orientation" gap:platform="ios" value="portrait" />
      <gap:splash src="images/Default-568h@2x~iphone_640x1136.png" gap:platform="ios" width="640" height="1136" />
      	<gap:splash src="images/Default-750@2x~iphone6-portrait_750x1334.png" gap:platform="ios" width="750" height="1334" />
 		<gap:splash src="images/Default-Portrait~ipad_768x1024.png" gap:platform="ios" width="768" height="1024" />
