@@ -51,7 +51,7 @@ function fail(uuid)
     });
 
 		$.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout:20000,
@@ -90,7 +90,7 @@ function fail(uuid)
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/get_check_out_summary_details',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/get_check_out_summary_details',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: {sch_uuid:sch_uuid},
