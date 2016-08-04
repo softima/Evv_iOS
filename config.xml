@@ -49,7 +49,7 @@
       <preference name="SplashScreenDelay" value="10000" />
      
      
-<preference name="Orientation" value="portrait" />
+<preference name="orienation" value="portrait" />
       	<gap:platform name="ios" />
       	<gap:platform name="android" />
       	<gap:platform name="winphone" />
