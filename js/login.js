@@ -129,7 +129,7 @@ function logout()
         }
     });
 		 $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
            crossDomain: true,
@@ -146,7 +146,7 @@ function logout()
     });
     
 	$.ajax({
-		 url:"http://183.82.96.212:8095/m_service/user/logout",		 
+		 url:"https://mmportal.ondemandhc.net/m_service/user/logout",		 
 		 type:"POST",
 		 dataType:"json",	
 		 success:function(data)
@@ -227,7 +227,7 @@ var loginpin = /^\d{4}$/;
         }
     });
 		 $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
           timeout: 10000,
@@ -271,7 +271,7 @@ var loginpin = /^\d{4}$/;
     });
     
 	$.ajax({
-		 url:"http://183.82.96.212:8095/m_service/user/login",
+		 url:"https://mmportal.ondemandhc.net/m_service/user/login",
 		 data:"username="+d.value+"&password="+loginpin1,
 		 type:"POST",
 		 dataType:"json",	
@@ -291,7 +291,7 @@ var loginpin = /^\d{4}$/;
 		
 		   
         $.ajax({
-          url:"http://183.82.96.212:8095/services/session/token",
+          url:"https://mmportal.ondemandhc.net/services/session/token",
           type:"get",
           dataType:"text",
            crossDomain: true,
@@ -334,7 +334,7 @@ var loginpin = /^\d{4}$/;
     });
 	
             $.ajax({
-              url: 'http://183.82.96.212:8095/m_service/m_resources/evv_enabled_login',
+              url: 'https://mmportal.ondemandhc.net/m_service/m_resources/evv_enabled_login',
               type: "POST",
 	  		  //data: 'device_uuid='+'8dc6cf319947e729',
       		  data: 'device_uuid='+device1.uuid,
