@@ -19,7 +19,7 @@
 -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "mobile.electronicvisit.app"
-        version   = "1.0.0"
+        version   = "2.0.0"
         xmlns:gap = "http://phonegap.com/ns/1.0">
     <name>ODHC</name>
 
