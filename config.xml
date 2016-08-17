@@ -52,7 +52,7 @@
    	  <preference name="SplashScreen" value="screen" />
       <preference name="SplashScreenDelay" value="10000" />
      <platform name="ios">
-     	   <icon height="56" src="res/ios/Icon-56.png" width="56" />
+     	   <icon height="56" src="res/ios/Icon.png" width="56" />
             <icon height="72" src="res/ios/Icon-72.png" width="72" />       
 	   <icon height="76" src="res/ios/Icon-App-76x76@1x.png" width="76" />
         <icon height="152" src="res/ios/Icon-App-76x76@2x.png" width="152" />
