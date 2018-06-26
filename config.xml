@@ -42,7 +42,7 @@
     </platform>
     <preference name="DisallowOverscroll" value="true" />
     <preference name="stay-in-webview" value="true" />
-	<preference name="phonegap-version" value="3.5.0" />
+	<preference name='phonegap-version' value='cli-6.5.0' />
      <preference name="loglevel" value="DEBUG" />
       <preference name="SplashScreen" value="splash" />
       <preference name="backgroundColor" value="0xFFF" />
