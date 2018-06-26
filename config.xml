@@ -82,31 +82,32 @@
 		<gap:splash src="images/Default-Landscape~ipad_1024x768.png" gap:platform="ios" width="1024" height="768" />
      
      <icon src="res/homecarelogo.png" />
-  <gap:plugin name="org.apache.cordova.core.camera" />
+  
 
-<gap:plugin name="org.apache.cordova.core.geolocation" />
-<gap:plugin name="org.apache.cordova.core.dialogs" />
-<gap:plugin name="org.apache.cordova.device" />
-<gap:plugin name="org.apache.cordova.device-motion" />
-<gap:plugin name="org.apache.cordova.device-orientation" />
-<gap:plugin name="org.apache.cordova.network-information" />
-<gap:plugin name="org.apache.cordova.dialogs" />
-<gap:plugin name="org.apache.cordova.splashscreen" />
+<gap:plugin name="cordova-plugin-geolocation" />
 
-<gap:plugin name="hu.dpal.phonegap.plugins.uniquedeviceid"/>
+<gap:plugin name="cordova-plugin-device" />
+
+<gap:plugin name="cordova-plugin-device-orientation" />
+<gap:plugin name="cordova-plugin-network-information" />
+
+<gap:plugin name="cordova-plugin-splashscreen"/>
+	
+<gap:plugin name="cordova-plugin-uniquedeviceid" />	
 
 <platform name="ios">
         <preference name="Orientation" value="portrait" />
     </platform>
 
-	<feature name="http://api.phonegap.com/1.0/device"/>
-    	<feature name="http://api.phonegap.com/1.0/battery"/>
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-    <feature name="http://api.phonegap.com/1.0/contacts"/>
-    <feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="Device"/>
+	<feature name="Compass"/>
+    	
+    
+    
+    <feature name="UniqueDeviceID"/>
     <feature name="http://api.phonegap.com/1.0/geolocation"/>
-    <feature name="http://api.phonegap.com/1.0/media"/>
-    <feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="SplashScreen"/>
+    <feature name="NetworkStatus"/>
     
 
     <!-- Deprecated plugins element. Remove in 3.0 -->
