@@ -51,6 +51,7 @@
       <preference name="disallowOverscroll" value="true" />
    	  <preference name="SplashScreen" value="screen" />
       <preference name="SplashScreenDelay" value="10000" />
+	<preference name="android-targetSdkVersion" value="26" />
      <platform name="ios">
      	   <icon height="57" src="res/ios/Icon.png" width="57" />
             <icon height="72" src="res/ios/Icon-72.png" width="72" />       
