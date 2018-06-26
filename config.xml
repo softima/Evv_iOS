@@ -84,7 +84,7 @@
      <icon src="res/homecarelogo.png" />
   
 
-<gap:plugin name="cordova-plugin-geolocation" />
+
 
 <gap:plugin name="cordova-plugin-device" />
 
