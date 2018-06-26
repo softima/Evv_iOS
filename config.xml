@@ -86,14 +86,14 @@
 
 
 
-<gap:plugin name="cordova-plugin-device" />
+<plugin name="cordova-plugin-device" />
 
-<gap:plugin name="cordova-plugin-device-orientation" />
-<gap:plugin name="cordova-plugin-network-information" />
+<plugin name="cordova-plugin-device-orientation" />
+<plugin name="cordova-plugin-network-information" />
 
-<gap:plugin name="cordova-plugin-splashscreen"/>
+<plugin name="cordova-plugin-splashscreen"/>
 	
-<gap:plugin name="cordova-plugin-uniquedeviceid" />	
+<plugin name="cordova-plugin-uniquedeviceid" />	
 
 <platform name="ios">
         <preference name="Orientation" value="portrait" />
